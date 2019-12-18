@@ -2,33 +2,32 @@ package dbien.demo.controller;
 
 import dbien.demo.domain.TextileType;
 import dbien.demo.repository.TextileTypeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/textiles")
+@RequestMapping("/textileTypes")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class TextileTypeController {
 
-    @Autowired
-//    TextileTypeService textileTypeRepository;
-    TextileTypeRepository textileTypeRepository;
+   private final TextileTypeRepository textileTypeRepository;
 
-    @RequestMapping(method = RequestMethod.POST)
-    public void setTextileType(@RequestBody TextileType textileType) {
-        TextileType textileType1 = new TextileType();
-        textileType1.setName("bawole");
-        textileType1.setNatural(true);
+    public TextileTypeController(TextileTypeRepository textileTypeRepository) {
+        this.textileTypeRepository = textileTypeRepository;
+    }
+
+    @PostMapping
+    public void addTextileType(@RequestBody TextileType textileType) {
         textileTypeRepository.save(textileType);
     }
 
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public Optional<TextileType> getTextileType (@PathVariable("id") Integer id) {
         return  textileTypeRepository.findById(id);
     }
 
-    @RequestMapping("")
+    @GetMapping
     public Iterable<TextileType> getTextileTypeList() {
         return textileTypeRepository.findAll();
     }

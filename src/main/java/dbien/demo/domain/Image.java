@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "image")
-class Image {
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

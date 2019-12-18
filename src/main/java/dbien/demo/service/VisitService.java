@@ -7,7 +7,9 @@ import dbien.demo.dto.CustomerDTO;
 import dbien.demo.repository.VisitRepository;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -38,6 +40,15 @@ public class VisitService {
         visit.setDate(date);
         visit.setStatus(VisitStatus.FREE);
         return visit;
+    }
+
+    public void addVisitTerm(String term) {
+
+    }
+
+    public void addVisitTermsList(List<String> terms) {
+
+
     }
 
 

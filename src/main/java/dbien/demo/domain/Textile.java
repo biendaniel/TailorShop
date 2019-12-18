@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "textile")
-class Textile {
+public class Textile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ class Textile {
     private Float priceRatio;
 
     @Column(name = "execution_time_ratio")
-    private Float executionTimeRatio;
+    private Float executionTimeRatio; //TODO usunac, to bez sensu jest?
 
     @ManyToOne
     @JoinColumn(name = "main_image_id")
