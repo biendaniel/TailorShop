@@ -1,6 +1,7 @@
 package dbien.demo.repository;
 
-import dbien.demo.domain.Textile;
+import dbien.demo.domain.Employee;
+import dbien.demo.domain.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -8,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface TextileRepository extends CrudRepository<Textile, Integer> {
+public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 
-    @Query(value = "SELECT * FROM textile WHERE name = ?1",
+    @Query(value = "SELECT id FROM Employee WHERE user_id = ?1",
             nativeQuery = true)
-    Optional<Textile> checkIfTextileExists(String name);
+    int getEmployeeIdByUserId(int userId);
 
 }

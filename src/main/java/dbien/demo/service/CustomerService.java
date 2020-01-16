@@ -20,7 +20,7 @@ public class CustomerService {
         this.userService = userService;
     }
 
-    public Customer createCustomer(UserDTO userDTO) {
+    public Customer createCustomer(User userDTO) {
         User user = userService.createUser(userDTO);
         Customer customer = new Customer();
         customer.setUser(user);

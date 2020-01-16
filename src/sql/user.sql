@@ -6,6 +6,7 @@ CREATE TABLE user (
                           firstname varchar(255) NOT NULL,
                           lastname varchar(255) NULL,
                           phone_number varchar(255) NOT NULL,
-                          password varchar(255) NOT NULL
+                          password varchar(255) NOT NULL,
+                          role varchar(32) NOT NULL
 )
 

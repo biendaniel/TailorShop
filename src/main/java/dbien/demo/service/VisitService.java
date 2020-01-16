@@ -2,7 +2,7 @@ package dbien.demo.service;
 
 import dbien.demo.domain.Customer;
 import dbien.demo.domain.Visit;
-import dbien.demo.domain.VisitStatus;
+import dbien.demo.domain.VisitStatusName;
 import dbien.demo.dto.CustomerDTO;
 import dbien.demo.repository.VisitRepository;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class VisitService {
         Customer customer = customerService.findCustomerById(customerDTO.getId());
         visit.ifPresent(value -> {
                     value.setCustomer(customer);
-                    value.setStatus(VisitStatus.BOOKED);
+                    value.setStatus(VisitStatusName.BOOKED);
                 }
         );
         return visit.orElseThrow();
@@ -38,7 +38,7 @@ public class VisitService {
     public Visit createVisitTerm(Date date) {
         Visit visit = new Visit();
         visit.setDate(date);
-        visit.setStatus(VisitStatus.FREE);
+        visit.setStatus(VisitStatusName.FREE);
         return visit;
     }
 

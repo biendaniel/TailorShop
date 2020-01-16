@@ -21,3 +21,4 @@ class OrderStatus {
     @Column(name = "change_date")
     private Date changeDate;
 }
+

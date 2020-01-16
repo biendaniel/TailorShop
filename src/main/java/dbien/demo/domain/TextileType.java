@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Entity
 @Data
 @Table(name = "textile_type")
+
 public class TextileType {
 
 

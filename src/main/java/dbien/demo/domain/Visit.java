@@ -23,7 +23,7 @@ public class Visit {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private VisitStatus status;
+    private VisitStatusName status;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

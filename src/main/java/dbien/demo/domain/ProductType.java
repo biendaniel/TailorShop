@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "product_type")
-class ProductType {
+public class ProductType { //TODO usunac textiles?
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

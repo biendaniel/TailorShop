@@ -8,21 +8,20 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "product")
-public
-class Product {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
     @Column(name = "price")
-    private Float price;
+    private Integer price;
 
     @Column(name = "comments")
     private String comments;
 
     @Column(name = "execution_time")
-    private Integer executiontime;
+    private Integer executionTime;
 
     @ManyToOne
     @JoinColumn(name = "clothes_style_id")
@@ -44,13 +43,12 @@ class Product {
     @JoinColumn(name = "product_type_id")
     private ProductType productType;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
-
-    @ManyToOne
-    @JoinColumn(name = "product_status_id")
-    private ProductStatus productStatus;
+//    @ManyToOne
+//    @JoinColumn(name = "order_id")
+//    private Order order;
+//    @ManyToOne
+//    @JoinColumn(name = "product_status_id")
+//    private ProductStatus productStatus; //TODO - to usunąć
 
     @ManyToOne
     @JoinColumn(name = "main_image_id")

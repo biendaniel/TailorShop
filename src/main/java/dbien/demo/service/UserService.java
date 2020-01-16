@@ -3,6 +3,9 @@ package dbien.demo.service;
 import dbien.demo.domain.User;
 import dbien.demo.dto.UserDTO;
 import dbien.demo.repository.UserRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
-    private  PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -18,7 +21,7 @@ public class UserService {
     }
 
 
-    public User createUser(UserDTO userDTO) {
+    public User createUser(User userDTO) {
 
         User user = new User();
         user.setEmail(userDTO.getEmail().toLowerCase());
@@ -32,5 +35,9 @@ public class UserService {
 
     public boolean checkIfUserExists(String email) {
         return userRepository.checkIfUserExists(email).isPresent();
+    }
+
+    public boolean checkAuthenticationData(User user, User foundUser) {
+        return (passwordEncoder.matches(user.getPassword(), foundUser.getPassword()));
     }
 }

@@ -7,12 +7,15 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "dimensions")
-class Dimensions {
+public class Dimensions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "collar_size")
     private Integer collarSize;
